@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --index: calc(1vw + 1vh);
+  --text: #e7e7e0;
+  --gap: 2em;
+  --transition: transform 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-black.woff2);
+  font-weight: 900;
+}
+body {
+  background-color: #010101;
+  font-family: raleway_f, sans-serif;
+  line-height: 1.55;
+}
+a {
+  text-decoration: none;
+}
+.menu {
+  margin-top: 1%;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  z-index: 100;
+  width: 23%;
+  height: calc(var(--index) * 2);
+}
+.menu li {
+  list-style: none;
+  font-size: calc(var(--index) * 1);
+  letter-spacing: calc(var(--index) / 6);
+  will-change: transform;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text);
+  text-shadow: 0 0 10px #9e7d35;
+}
+.main-header {
+  position: relative;
+}
+.main-header::after {
+  content: "";
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: calc(var(--index) * 3.8);
+  background-image: url(../img/roll.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  bottom: calc(var(--index) * -1.75);
+}
+
+.layers {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.layer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 2;
+  transition: var(--transition);
+}
+.layers__base {
+  background-image: url(../img/front-studia.jpg);
+  transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+  z-index: 0;
+}
+.layers__middle {
+  background-image: url(../img/hihihi.png);
+  transform: translate3d(0, calc(var(--scrollTop) / 2.35), 0);
+}
+.layer__header {
+  z-index: 1;
+  transform: translate3d(0, calc(var(--scrollTop) / 2.1), 0);
+  transition: var(--transition);
+  will-change: transform;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--text);
+  text-shadow: 0 0 15px #9e7d35;
+}
+.layers__title {
+  font-size: calc(var(--index) * 2.5);
+  letter-spacing: calc(var(--index) / 2.25);
+}
+.layers__caption {
+  font-size: calc(var(--index) / 1.175);
+  letter-spacing: calc(var(--index) / 3.5);
+  margin-top: calc(var(--index) * -10.65);
+}
+
+.main-article {
+  background-image: url(../img/kamorka.jpg);
+  --main-article-transform: translate3d(0, calc(var(--scrollTop) / -8), 0);
+  min-height: 100vh;
+  background-size: cover;
+  background-color: center;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.main-article__content {
+  width: 70vw;
+  margin-top: calc(var(--index) * 8);
+  column-width: 20em;
+  gap: var(--gap);
+}
+.main-article__album {
+  margin-bottom: calc(var(--gap) / 2);
+  transform: var(--main-article-transform);
+  transition: var(--transition);
+  will-change: transform;
+}
+.main-article__album img {
+  border-radius: 2%;
+  width: calc(var(--index) * 12);
+}
+.content {
+  will-change: transform;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  bottom: calc(var(--index) * 1.5);
+  opacity: 0.45;
+  font-size: calc(var(--index) * 0.75);
+  letter-spacing: calc(var(--index) / 37.5);
+}
+.pagination {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.pagination\:number {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #202020;
+  color: white;
+  font-size: larger;
+}
+@media (hover: hover) {
+  .pagination\:number:hover {
+    background: #282828;
+  }
+}
+.pagination\:number:active {
+  background: #282828;
+}
+.pagination\:active {
+  background: lightslategray;
+  position: relative;
+}
+
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

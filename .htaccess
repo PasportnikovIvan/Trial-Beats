@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.gif|\.jpeg|\.jfif|\.mp3|\.js|\.css|\.woff2|\.svg)$
+RewriteRule (.*)  index.php [QSA]

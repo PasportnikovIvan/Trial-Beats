@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+  font-family: raleway_f;
+  src: url(../fonts/raleway-black.woff2);
+  font-weight: 900;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000000e0;
+  color: white;
+  font-family: raleway_f, sans-serif;
+  line-height: 1.55;
+}
+a {
+  text-decoration: none;
+  color: -webkit-link;
+}
+button {
+  text-decoration: none;
+}
+.container {
+  padding: 16px;
+}
+
+.row {
+  margin-bottom: 22px;
+}
+
+input,
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  display: inline-block;
+  border: none;
+  background: #161616;
+  color: white;
+}
+
+input:focus,
+input:focus {
+  background-color: black;
+  outline: none;
+}
+.linkLogin {
+  color:dodgerblue;
+}
+.registerbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+.error {
+  color: red;
+}
+
+.user-form {
+  width: 80%;
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  z-index: 50;
+}
+#mySidenav a:hover {
+  left: 0;
+}
+
+#home {
+  top: 60px;
+  background-color: #555;
+}
